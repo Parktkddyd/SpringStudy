@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.SearchCriteria;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO{
@@ -55,6 +56,22 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
 		return session.selectList(namespace + ".listCriteria", cri);
+	}
+
+	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		
+		return session.selectOne(namespace+".countPaging", cri);
+	}
+
+	@Override
+	public List<BoardVO> listSerach(SearchCriteria cri) throws Exception {
+		return session.selectList(namespace + ".listSearch", cri);
+	}
+
+	@Override
+	public List<BoardVO> listSearchCount(SearchCriteria cri) throws Exception {
+		return session.selectList(namespace + ".listSearchCount", cri);
 	}
 	
 
