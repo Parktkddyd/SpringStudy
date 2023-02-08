@@ -104,7 +104,7 @@ public class BoardDAOtest {
 		SearchCriteria cri = new SearchCriteria();
 		cri.setPage(1);
 		cri.setKeyword("±Û");
-		cri.setSearchType("t");
+		cri.setSearchType("tcw");
 		
 		logger.info("----------------------");
 		
